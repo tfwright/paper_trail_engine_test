@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406173038) do
+ActiveRecord::Schema.define(version: 20160406205531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,13 @@ ActiveRecord::Schema.define(version: 20160406173038) do
   enable_extension "pg_trgm"
   enable_extension "unaccent"
 
-  create_table "audits", force: :cascade do |t|
+  create_table "tracked_resources", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
     t.integer  "item_id",    null: false
     t.string   "event",      null: false
@@ -29,12 +35,6 @@ ActiveRecord::Schema.define(version: 20160406173038) do
     t.datetime "created_at"
   end
 
-  add_index "audits", ["item_type", "item_id"], name: "index_audits_on_item_type_and_item_id", using: :btree
-
-  create_table "tracked_resources", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end

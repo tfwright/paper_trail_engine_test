@@ -1,4 +1,5 @@
-class CreateAudits < ActiveRecord::Migration
+# This migration comes from paper_trail_engine_test_engine (originally 20160406205531)
+class CreateVersions < ActiveRecord::Migration
 
   # The largest text column available in all supported RDBMS is
   # 1024^3 - 1 bytes, roughly one gibibyte.  We specify a size
@@ -7,7 +8,7 @@ class CreateAudits < ActiveRecord::Migration
   TEXT_BYTES = 1_073_741_823
 
   def change
-    create_table :audits do |t|
+    create_table :versions do |t|
       t.string   :item_type, :null => false
       t.integer  :item_id,   :null => false
       t.string   :event,     :null => false
@@ -29,6 +30,6 @@ class CreateAudits < ActiveRecord::Migration
       #
       t.datetime :created_at
     end
-    add_index :audits, [:item_type, :item_id]
+    add_index :versions, [:item_type, :item_id]
   end
 end
