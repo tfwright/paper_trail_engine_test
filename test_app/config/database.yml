@@ -15,4 +15,7 @@ development:
 test:
   <<: *default
   database: paper_trail_app_test_t
+production:
+  <<: *default
+  database: paper_trail_app_test_p
 
