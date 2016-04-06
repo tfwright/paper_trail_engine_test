@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = PaperTrailEngineTest::VERSION
   s.authors     = ["Thomas Floyd Wright"]
   s.email       = ["tfwright@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of PaperTrailEngineTest."
-  s.description = "TODO: Description of PaperTrailEngineTest."
+  s.homepage    = "https://github.com/tfwright/paper_trail_engine_test"
+  s.summary     = "Tests compatibility of paper trail gem with rails engine"
+  s.description = "Tests compatibility of paper trail gem with rails engine"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
